@@ -28,7 +28,8 @@
     "@raycast/eslint-config": "^1.0.0",
     "@types/node": "^20.0.0",
     "eslint": "^9.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.18"
   },
   "icon": "extension-icon.png",
   "license": "MIT",
@@ -52,7 +53,9 @@
   "scripts": {
     "build": "ray build",
     "dev": "ray develop",
-    "lint": "ray lint"
+    "lint": "ray lint",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "title": "Short URL"
 }

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "lib": ["ES2021"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true
+  },
+  "include": ["src/**/*", "env.d.ts"]
+}

@@ -1,0 +1,44 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/**/*
+      - package.json
+      - package-lock.json
+      - tsconfig.json
+      - .github/**/*
+
+jobs:
+  pre-commit:
+    name: pre-commit checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
+
+  ci:
+    name: lint, typecheck & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - name: lint
+        run: npm run lint
+      - name: typecheck
+        run: npx tsc --noEmit
+      - name: test
+        run: npm test

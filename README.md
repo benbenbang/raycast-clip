@@ -59,7 +59,7 @@ API keys are optional. The three keyless services (TinyURL, is.gd, v.gd) work im
 
 To use **bit.ly** or **cutt.ly**, add your key in Raycast:
 
-1. Open Raycast and search for **Short URL**
+1. Open Raycast and search for **CLIP**
 2. Press `Cmd+,` to open extension preferences (or select "Configure API Key" from any unconfigured service)
 3. Paste your key into the corresponding field
 

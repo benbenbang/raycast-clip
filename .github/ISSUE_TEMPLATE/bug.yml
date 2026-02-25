@@ -1,0 +1,53 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in Short URL
+labels: [bug, unconfirmed]
+
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to report a bug in Short URL.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Initial Checks
+      options:
+        - label: I have searched existing issues and found no duplicate.
+          required: true
+        - label: I am using the latest version of the extension.
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Please explain what you're seeing and what you would expect to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Open Raycast and trigger "Shorten URL"
+        2. Enter URL ...
+        3. Select service ...
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Please provide the following:
+        - macOS version
+        - Raycast version
+        - Extension version
+        - Shortening service affected (bit.ly, cutt.ly, tinyurl, is.gd, v.gd)
+      render: Text
+    validations:
+      required: true

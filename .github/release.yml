@@ -1,0 +1,48 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - wip
+      - draft
+      - development
+    authors:
+      - octocat
+  categories:
+    - title: Breaking Changes
+      labels:
+        - Semver-Major
+        - breaking-change
+    - title: New Features
+      labels:
+        - Semver-Minor
+        - feat
+        - feature
+    - title: Enhancement
+      labels:
+        - Semver-Minor
+        - refactor
+        - enhancement
+    - title: CI, Workflows & Minor Changes
+      labels:
+        - Semver-Patch
+        - ci
+        - ops
+        - chore
+        - style
+    - title: Bug Fixes
+      labels:
+        - Semver-Patch
+        - fix
+    - title: Hotfix
+      labels:
+        - Semver-Patch
+        - hotfix
+    - title: Docs
+      labels:
+        - documentation
+    - title: Reverts
+      labels:
+        - revert
+    - title: Other Changes
+      labels:
+        - "*"

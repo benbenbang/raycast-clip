@@ -1,0 +1,57 @@
+name: Security Vulnerability Report
+description: Report a potential security vulnerability in Short URL
+labels: [security, unconfirmed]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a potential security vulnerability in Short URL.
+        If the vulnerability is sensitive, please consider emailing the maintainer directly instead of using this public form.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Initial Checks
+      options:
+        - label: I confirm that I am referencing the correct repository (raycast-clip) for this report.
+          required: true
+
+  - type: textarea
+    id: vulnerability_description
+    attributes:
+      label: Vulnerability Description
+      description: |
+        Please provide a detailed explanation of the potential vulnerability.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Step one...
+        2. Step two...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: potential_impact
+    attributes:
+      label: Potential Impact
+      description: |
+        Describe what you believe could be the potential impact or risks if the vulnerability were exploited.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Please provide your macOS version, Raycast version, and extension version.
+      render: Text
+    validations:
+      required: true

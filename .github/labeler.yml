@@ -1,0 +1,46 @@
+triaged:
+  - changed-files:
+      - any-glob-to-any-file: "**/*"
+
+feat:
+  - head-branch:
+      - ^feat*
+
+enhancement:
+  - head-branch:
+      - ^refactor
+      - ^enh*
+
+fix:
+  - head-branch:
+      - ^fix*
+      - ^hotfix*
+
+workflow:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**/*
+  - head-branch:
+      - ^workflow
+      - ^ci
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - README.md
+          - docs/**/*
+
+src:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/**/*
+
+assets:
+  - changed-files:
+      - any-glob-to-any-file:
+          - assets/**/*
+
+scripts:
+  - changed-files:
+      - any-glob-to-any-file:
+          - scripts/**/*

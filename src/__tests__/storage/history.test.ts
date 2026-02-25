@@ -86,16 +86,16 @@ describe("addToHistory", () => {
 
 describe("removeFromHistory", () => {
   it("removes entry matching shortUrl", async () => {
-    const entries = [
-      makeResult("https://tinyurl.com/a"),
-      makeResult("https://tinyurl.com/b"),
-    ];
-    vi.mocked(LocalStorage.getItem).mockResolvedValue(JSON.stringify(entries));
+    const entryA = makeResult("https://tinyurl.com/a");
+    const entryB = makeResult("https://tinyurl.com/b");
+    vi.mocked(LocalStorage.getItem).mockResolvedValue(
+      JSON.stringify([entryA, entryB]),
+    );
     vi.mocked(LocalStorage.setItem).mockResolvedValue(undefined);
     await removeFromHistory("https://tinyurl.com/a");
     expect(LocalStorage.setItem).toHaveBeenCalledWith(
       "shorten-history",
-      JSON.stringify([makeResult("https://tinyurl.com/b")]),
+      JSON.stringify([entryB]),
     );
   });
 

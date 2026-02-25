@@ -49,7 +49,7 @@ jobs:
         run: npm test
 
   workflow-success:
-    needs: [pre-commit, ci]
+    needs: [pre-commit, pr-title, ci]
     if: always() && needs.pre-commit.result == 'success' && needs.pr-title.result == 'success' && needs.ci.result == 'success'
     name: workflow success
     runs-on: ubuntu-latest

@@ -1,0 +1,58 @@
+name: pull-request-workflows
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  pre-commit:
+    name: pre-commit checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - uses: pre-commit/action@v3.0.1
+
+  pr-title:
+    uses: benbenbang/raycast-clip/.github/workflows/pr-title.yml@workflows
+    secrets: inherit
+
+  ci:
+    name: lint, typecheck & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - name: lint
+        run: npm run lint
+      - name: typecheck
+        run: npx tsc --noEmit
+      - name: test
+        run: npm test
+
+  workflow-success:
+    needs: [pre-commit, ci]
+    if: always() && needs.pre-commit.result == 'success' && needs.pr-title.result == 'success' && needs.ci.result == 'success'
+    name: workflow success
+    runs-on: ubuntu-latest
+    steps:
+      - name: success
+        run: echo "all checks passed"

@@ -1,0 +1,9 @@
+# CODEOWNERS for raycast-clip
+# Documentation: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# @benbenbang will be requested for review when someone opens a pull request.
+*                   @benbenbang
+.github/*           @benbenbang
+CODEOWNERS          @benbenbang
+.releaserc.json     @benbenbang
+LICENSE             @benbenbang

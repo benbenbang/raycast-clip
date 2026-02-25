@@ -147,7 +147,7 @@ export default function ShortenUrl() {
                   />
                 ) : (
                   <Action
-                    title="Configure API Key"
+                    title="Configure Api Key"
                     icon={Icon.Gear}
                     onAction={() => openExtensionPreferences()}
                   />

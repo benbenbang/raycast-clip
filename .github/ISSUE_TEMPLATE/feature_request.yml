@@ -1,0 +1,30 @@
+name: Feature Request
+description: Suggest a new feature or enhancement for Short URL
+labels: [feature_request]
+
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for suggesting an improvement to Short URL.
+
+  - type: checkboxes
+    id: searched
+    attributes:
+      label: Preliminary Checks
+      options:
+        - label: I have searched existing issues and found no similar request.
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Details
+      description: |
+        Provide a clear description of the feature or enhancement you are suggesting.
+
+        Consider including:
+        - The problem it solves or the workflow it improves.
+        - How you would expect it to work in Raycast.
+        - Which shortening service(s) it relates to, if applicable.
+    validations:
+      required: true

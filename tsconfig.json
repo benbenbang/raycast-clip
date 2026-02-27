@@ -9,6 +9,6 @@
     "resolveJsonModule": true,
     "strict": true
   },
-  "include": ["src/**/*", "env.d.ts"],
+  "include": ["src/**/*", "raycast-env.d.ts"],
   "exclude": ["src/__tests__", "src/__mocks__"]
 }

@@ -17,23 +17,18 @@ import { shortenUrl } from "./services/shorten";
 import { addToHistory } from "./storage/history";
 import { ShorteningService } from "./types";
 
-interface Preferences {
-  bitlyApiKey?: string;
-  cuttlyApiKey?: string;
-}
-
 function getApiKey(
   service: ShorteningService,
-  prefs: Preferences,
+  prefs: Preferences.ShortenUrl,
 ): string | undefined {
   if (!service.requiresApiKey || !service.apiKeyPreferenceName)
     return undefined;
-  return prefs[service.apiKeyPreferenceName as keyof Preferences];
+  return prefs[service.apiKeyPreferenceName as keyof Preferences.ShortenUrl];
 }
 
 function isServiceConfigured(
   service: ShorteningService,
-  prefs: Preferences,
+  prefs: Preferences.ShortenUrl,
 ): boolean {
   if (!service.requiresApiKey) return true;
   const key = getApiKey(service, prefs);
@@ -45,7 +40,7 @@ export default function ShortenUrl() {
   const [clipboardUrl, setClipboardUrl] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const prefs = getPreferenceValues<Preferences>();
+  const prefs = getPreferenceValues<Preferences.ShortenUrl>();
 
   useEffect(() => {
     Clipboard.readText().then((text) => {

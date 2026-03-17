@@ -20,9 +20,9 @@ export async function shortenWithCuttly(
   url: string,
   apiKey: string,
 ): Promise<string> {
-  const requestUrl = `https://cutt.ly/api/api.php?key=${apiKey}&short=${encodeURIComponent(
-    url,
-  )}&name=${randomName()}`;
+  const requestUrl = `https://cutt.ly/api/api.php?key=${encodeURIComponent(
+    apiKey,
+  )}&short=${encodeURIComponent(url)}&name=${randomName()}`;
 
   const response = await fetch(requestUrl);
   if (!response.ok) {

@@ -144,4 +144,3 @@ _vendor*
 # Project Level 👇
 # Remove the existed one or use anti pattern ! to allow some patterns if needed
 node_modules/
-raycast-env.d.ts

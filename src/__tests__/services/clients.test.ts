@@ -216,6 +216,19 @@ describe("shortenWithTinyurl", () => {
       "500",
     );
   });
+
+  it("throws when TinyURL returns a non-URL response (e.g. 'Error')", async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      status: 200,
+      statusText: "OK",
+      text: () => Promise.resolve("Error"),
+    });
+
+    await expect(shortenWithTinyurl("https://example.com")).rejects.toThrow(
+      "TinyURL API failed",
+    );
+  });
 });
 
 describe("shortenWithIsgd", () => {

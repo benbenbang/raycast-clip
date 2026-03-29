@@ -20,7 +20,7 @@ repos:
       - id: trailing-whitespace
       - id: check-added-large-files
         args:
-          - --maxkb=1024
+          - --maxkb=2048
         stages:
           - pre-commit
       - id: requirements-txt-fixer

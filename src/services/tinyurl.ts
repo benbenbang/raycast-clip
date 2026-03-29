@@ -10,5 +10,9 @@ export async function shortenWithTinyurl(url: string): Promise<string> {
     );
   }
 
-  return response.text();
+  const text = await response.text();
+  if (!text.startsWith("http")) {
+    throw new Error(`TinyURL API failed: ${text}`);
+  }
+  return text;
 }
